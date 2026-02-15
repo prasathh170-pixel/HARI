@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Lover's Day ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    padding: 40px 20px;
+    color: white;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #ff4b6e;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4b6e;
+    color: white;
+}
+
+.hidden-message {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.3rem;
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 8s infinite ease-in;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: -10px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        bottom: -10%;
+        opacity: 1;
+    }
+    100% {
+        bottom: 110%;
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Lover's Day ❤️</h1>
+    <p>To the most beautiful soul in my life...</p>
+    <button onclick="showMessage()">Click for a Surprise 💌</button>
+    <div class="hidden-message" id="loveMessage">
+        LOVE YOU VINODHINI💖<br>
+        I love you more than words can ever say.
+    </div>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("loveMessage").style.display = "block";
+}
+
+// Create floating hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
